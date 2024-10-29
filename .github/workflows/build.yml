@@ -1,0 +1,11 @@
+on:
+  pull_request:
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - run: |
+        dotnet restore --locked-mode
+        dotnet build --configuration Release --no-restore
